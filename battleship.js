@@ -102,7 +102,7 @@ var controller = {
 
   }
 };
-
+/*
 controller.processGuess("A0");
 controller.processGuess("A6");
 controller.processGuess("B6");
@@ -113,6 +113,7 @@ controller.processGuess("E4");
 controller.processGuess("B0");
 controller.processGuess("B1");
 controller.processGuess("B2");
+*/
 
 function parseGuess(guess) {
   var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
@@ -141,4 +142,28 @@ console.log(parseGuess("H0"));
 console.log(parseGuess("A7"));
 */
 
+function init() {
+  var fireButton = document.getElementById("fireButton");
+  fireButton.onclick = handleFireButton;
+  guessInput.onkeypress = handleKeyPress;
+}
+
+function handleKeyPress(e) {
+    var fireButton = document.getElementById("fireButton"); if (e.keyCode === 13) {
+    fireButton.click();
+    return false; }
+}
+
+function handleFireButton() {
+
+  var guessInput = document.getElementById("guessInput");
+  var guess = guessInput.value;
+  controller.processGuess(guess);
+
+
+  guessInput.value = "";
+
+}
+
+window.onload = init;
 console.log("working");
