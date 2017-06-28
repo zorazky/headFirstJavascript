@@ -11,13 +11,27 @@
       window.onload = init;
 
       function init(){
-        var image = document.getElementById("zero");
-        image.onclick = showAnswer;
+
+        var images = document.getElementsByTagName("img");
+        for (var i = 0; i < images.length; i++) {
+          images[i].onclick = showAnswer;
+        }
       }
 
-      function showAnswer(){
-        var image = document.getElementById("zero");
-        image.src = "zero.jpg";
+      function showAnswer(eventObj){
+        var image = eventObj.target;
+        var name = image.id;
+        name = name + ".jpg";
+        image.src = name;
+        image.onclick = showBlur;
+      }
+
+      function showBlur(eventObj){
+        var image = eventObj.target;
+        var name = image.id;
+        name = name + "blur.jpg";
+        image.src = name;
+        image.onclick = showAnswer;
       }
 
   </script>
@@ -29,5 +43,27 @@
   <img id="three" src="threeblur.jpg">
   <img id="four" src="fourblur.jpg">
   <img id="five" src="fiveBlur.jpg">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
