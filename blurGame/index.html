@@ -23,15 +23,16 @@
         var name = image.id;
         name = name + ".jpg";
         image.src = name;
-        image.onclick = showBlur;
+
+        setTimeout(reblur, 2000, image);
       }
 
-      function showBlur(eventObj){
-        var image = eventObj.target;
+      function reblur(image){
+
         var name = image.id;
         name = name + "blur.jpg";
         image.src = name;
-        image.onclick = showAnswer;
+        
       }
 
   </script>
